@@ -24,17 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: users.length,
         itemBuilder: (context, index) {
           final user = users[index];
+          final name = user['name']['first'];
           final email = user['email'];
+          final imageUrl = user['picture']['thumbnail'];
 
           return ListTile(
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             textColor: Theme.of(context).textTheme.bodyText2?.color,
-            leading: CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.secondary,
-              child: Text('${index + 1}'),
-            ),
-            title: Text(email),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image.network(imageUrl)),
+            title: Text(name),
+            subtitle: Text(email),
           );
         },
       ),
