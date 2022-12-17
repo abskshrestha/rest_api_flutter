@@ -1,3 +1,6 @@
+import 'package:http/http.dart';
+import 'package:rest_api_flutter/models/user_dob.dart';
+
 import '../models/user_name.dart';
 
 class User {
@@ -7,6 +10,7 @@ class User {
   final String cell;
   final String nat;
   final UserName name;
+  final UserDob dob;
 
   User({
     required this.gender,
@@ -15,7 +19,10 @@ class User {
     required this.cell,
     required this.nat,
     required this.name,
+    required this.dob,
   });
+
+  String get fullName {
+    return '${name.title} ${name.first} ${name.last}';
+  }
 }
-
-
