@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             textColor: Theme.of(context).textTheme.bodyText2?.color,
-            title: Text(user.name.first),
+            title: Text(user.fullName),
             subtitle: Text(user.phone),
             tileColor: color,
           );
